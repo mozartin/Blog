@@ -1,0 +1,27 @@
+
+h1, h2 {
+   color: #201C1B;
+}
+
+p {
+   color: #1f553f;
+}
+
+h2 {
+   color: #2E7758
+}
+
+body {
+  background-color: #fef9f3;
+}
+.name {
+  font-size: 26px;
+}
+.time {
+  color: #958a7b;
+  font-size: 16px;
+}
+a {
+  color: #2E7758;
+  font-size: 20px;
+}
