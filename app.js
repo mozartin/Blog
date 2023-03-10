@@ -4,10 +4,9 @@ const mongoose = require("mongoose");
 const PORT = 4000;
 const app = express();
 const feedController = require("./controllers/feedsController");
+require("dotenv").config();
 
-const dbURI =
-  "mongodb+srv://olena:TjL4lJt7f2FJ9hV0@cluster0.wju1agb.mongodb.net/challenge?retryWrites=true&w=majority";
-const FEED = require("./models/FEED");
+const dbURI = process.env.dbURI;
 
 app.set("view engine", "ejs");
 app.use(morgan("dev"));
