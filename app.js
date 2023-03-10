@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const feedRoutes = require("./routes/feedRoutes");
 const authRouter = require("./routes/authRoutes");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 const dbURI = process.env.dbURI;
@@ -17,6 +18,7 @@ app.use(morgan("dev"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 
 mongoose.set("strictQuery", false);
 

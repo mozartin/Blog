@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <%- include('./partials/head.ejs') %>
-<%- include('./partials/navbar.ejs') %>
-
 <body>
-<div class="container">
+   <%- include('./partials/navbar.ejs') %>
+   <div class="container">
+      <div class="mb-3 mt-5 d-flex justify-content-between align-items-end">
+         <h2>Log In</h2>
+         <h1>Welcome To Facebook</h1>
+      </div>
+      <form action="/post" method="post">
+         <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="text" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+            <div id="nameFeedback" class="invalid-feedback pb-2">The Name field must be no longer than 15 characters</div>
+         </div>
+         <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" class="form-control" name="password" id="password">
+         </div>
+         <div id="passwordFeedback" class="invalid-feedback pb-2">The Message field must be no longer than 40 character</div>
+         <button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
+      </form>
 
-<h1>Log In</h1>
+      <%- include('./partials/footer.ejs') %>
+   </div>
+   <script>
+   const form = document.querySelector('form');
 
-<%- include('./partials/footer.ejs') %>
-</div>
+   form.addEventListener('submit', (e) => {
+   e.preventDefault();
 
-<script src="/script.js"></script>
+   // get values
+   const email = form.email.value;
+   const password = form.password.value;
+
+   console.log(email, password);
+   })
+   </script>
 </body>
-
 </html>

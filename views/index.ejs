@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <%- include('./partials/head.ejs') %>
-<%- include('./partials/navbar.ejs') %>
 
-   <body>
-      <div class="container">
-         <div class="mb-3 mt-5 d-flex justify-content-between align-items-end">
-            <h2>Add a post</h2>
-            <h1>Welcome To Facebook</h1>
-         </div>
-         <form action="/post" method="post">
+<body> 
+   <%- include('./partials/navbar.ejs') %>
+   <div class="container">
+      <div class="mb-3 mt-5 d-flexjustify-content-between align-items-end">
+         <h2>Add a post</h2>
+         <h1>Welcome To Facebook</h1>
+      </div>
+      <form action="/post" method="post">
             <div class="mb-3">
                <label for="name" class="form-label">Name:</label>
                <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name">
@@ -30,11 +30,10 @@
                The Message field is required
             </div>
             <button type="submit" class="btn btn-success" id="submitBtn" disabled>Submit</button>
-         </form>
-      </div>
-
-      <div class="container">
-         <div class="row">
+      </form>
+   </div>
+   <div class="container">
+      <div class="row">
             <ul class="list-group mt-5">
                <% feeds.forEach((feed)=> {%>
                   <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -54,12 +53,9 @@
                   </li>
                   <% }) %>
             </ul>
-         </div>
-
-         <%- include('./partials/footer.ejs') %>
       </div>
-
-      <script src="/script.js"></script>
-   </body>
-
-   </html>
+      <%- include('./partials/footer.ejs') %>
+   </div>
+<script src="/script.js"></script>
+</body>
+</html>
