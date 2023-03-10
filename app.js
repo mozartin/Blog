@@ -1,19 +1,22 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const PORT = 4000;
-const app = express();
 const feedRoutes = require("./routes/feedRoutes");
 const authRouter = require("./routes/authRoutes");
-
 require("dotenv").config();
 
 const dbURI = process.env.dbURI;
+const PORT = 4000;
+const app = express();
 
+// view engine
 app.set("view engine", "ejs");
+
+// middleware
 app.use(morgan("dev"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 mongoose.set("strictQuery", false);
 
