@@ -5,6 +5,7 @@ const feedRoutes = require("./routes/feedRoutes");
 const authRouter = require("./routes/authRoutes");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
+const {checkUser} = require("./middleware/authMiddleware")
 
 const dbURI = process.env.dbURI;
 const PORT = 4000;
@@ -29,6 +30,6 @@ mongoose
     app.listen(PORT);
   });
 
-  
+app.get("*", checkUser)
 app.use(authRouter);
 app.use(feedRoutes);
