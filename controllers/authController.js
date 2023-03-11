@@ -4,7 +4,7 @@ const { response } = require("express");
 
 // handle errors
 const handleErrors = (err) => {
-  let errors = { email: "", password: "" };
+  let errors = { name: "", email: "", password: "" };
 
   // This email does not exist
   if (err.message === "This email does not exist") {
@@ -13,6 +13,10 @@ const handleErrors = (err) => {
 
   if (err.message === "Incorrect password") {
     errors.password = "This password is incorrect";
+  }
+
+  if (err.message === "Please enter your name") {
+    errors.password = "Please, enter your name";
   }
 
   // duplicate error code
@@ -47,10 +51,10 @@ const login_get = (req, res) => {
 };
 
 const signup_post = async (req, res) => {
-  const { email, password } = req.body;
+  const { name, email, password } = req.body;
 
   try {
-    const user = await User.create({ email, password });
+    const user = await User.create({ name, email, password });
     const token = createToken(user._id);
     res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(201).json({ user: user._id });

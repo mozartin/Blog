@@ -1,14 +1,24 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-h1, h2 {
-   color: #201C1B;
+footer {
+  margin-top: auto;
+}
+
+h1,
+h2 {
+  color: #201c1b;
 }
 
 p {
-   color: #1f553f;
+  color: #1f553f;
 }
 
 h2 {
-   color: #2E7758
+  color: #2e7758;
 }
 
 body {
@@ -25,7 +35,7 @@ body {
 }
 
 a {
-  color: #2E7758;
+  color: #2e7758;
   font-size: 20px;
 }
 

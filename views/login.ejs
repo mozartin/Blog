@@ -4,7 +4,7 @@
    <%- include('./partials/navbar.ejs') %>
    <div class="container">
       <div class="mb-3 mt-5 d-flex justify-content-between align-items-end">
-         <h2>Sign Up</h2>
+         <h2>Log In</h2>
          <h1>Welcome To Facebook</h1>
       </div>
       <form action="/post" method="post">
@@ -20,9 +20,10 @@
          <p id="passwordFeedback" class="pb-2 feedback"></p>
          <button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
       </form>
-
-      <%- include('./partials/footer.ejs') %>
    </div>
+
+   <%- include('./partials/footer.ejs') %>
+   
    <script>
    const form = document.querySelector('form');
    const emailFeedback = document.getElementById('emailFeedback')
@@ -34,7 +35,7 @@
    // reset error message
    emailFeedback.innerHTML = ""
    passwordFeedback.innerHTML = ""
-
+   
    // get the values
    const email = form.email.value;
    const password = form.password.value;
@@ -42,7 +43,7 @@
    try {
       const res = await fetch("/login", {
          method: 'POST',
-         body: JSON.stringify({email, password}),
+         body: JSON.stringify({ email, password }),
          headers: { 'Content-Type': 'application/json' }
       })
       const data = await res.json()

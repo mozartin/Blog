@@ -9,6 +9,11 @@
       </div>
       <form action="/post" method="post">
          <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="name" name="name">
+            <p id="nameFeedback" class="pb-2 feedback"></p>
+         </div>
+         <div class="mb-3">
             <label for="email" class="form-label">Email:</label>
             <input type="text" class="form-control" id="email" aria-describedby="emailHelp" name="email">
             <p id="emailFeedback" class="pb-2 feedback"></p>
@@ -21,10 +26,13 @@
          <button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
       </form>
 
-      <%- include('./partials/footer.ejs') %>
    </div>
+
+   <%- include('./partials/footer.ejs') %>
+   
    <script>
    const form = document.querySelector('form');
+   const nameFeedback = document.getElementById('nameFeedback')
    const emailFeedback = document.getElementById('emailFeedback')
    const passwordFeedback = document.getElementById('passwordFeedback')
 
@@ -32,20 +40,25 @@
    e.preventDefault();
 
    // reset error message
+   nameFeedback.innerHTML = ""
    emailFeedback.innerHTML = ""
    passwordFeedback.innerHTML = ""
 
    // get the values
+   const name = form.name.value;
    const email = form.email.value;
    const password = form.password.value;
 
    try {
       const res = await fetch("/signup", {
          method: 'POST',
-         body: JSON.stringify({email, password}),
+         body: JSON.stringify({name, email, password}),
          headers: { 'Content-Type': 'application/json' }
       })
       const data = await res.json()
+      if(data.name) {
+         nameFeedback.innerHTML = data.name
+      }
       if(data.email) {
          emailFeedback.innerHTML = data.email
       }
