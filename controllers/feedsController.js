@@ -40,7 +40,6 @@ const feed_update_post = (req, res) => {
 };
 
 const feed_post = (req, res) => {
-  console.log(req.body);
   const feed = new FEED(req.body);
   feed
     .save()

@@ -14,14 +14,21 @@ h2 {
 body {
   background-color: #fef9f3;
 }
+
 .name {
   font-size: 26px;
 }
+
 .time {
   color: #958a7b;
   font-size: 16px;
 }
+
 a {
   color: #2E7758;
   font-size: 20px;
+}
+
+.feedback {
+  color: red;
 }
