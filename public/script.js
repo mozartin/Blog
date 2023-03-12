@@ -1,14 +1,14 @@
 const form = document.querySelector("form");
 const submitBtn = document.getElementById("submitBtn");
 const message = document.getElementById("message");
-const name = document.getElementById("name");
+const title = document.getElementById("title");
 const messageFeedback = document.getElementById("messageFeedback");
-const nameFeedback = document.getElementById("nameFeedback");
-const nameFeedbackRequired = document.getElementById("nameFeedbackRequired");
+const titleFeedback = document.getElementById("titleFeedback");
+const titleFeedbackRequired = document.getElementById("titleFeedbackRequired");
 let messageValue = message.value;
-let nameValue = name.value;
+let titleValue = title.value;
 let isMessageValid = messageValue.length > 0 ? true : false;
-let isnameValid = nameValue.length > 0 ? true : false;
+let istitleValid = titleValue.length > 0 ? true : false;
 
 let messageValidation = () => {
   if (messageValue.length <= 40 && messageValue.length > 0) {
@@ -32,25 +32,25 @@ let messageValidation = () => {
   }
 };
 
-let nameValidation = () => {
-  if (nameValue.length <= 15 && nameValue.length > 0) {
-    name.classList.remove("is-invalid");
-    name.classList.add("is-valid");
-    nameFeedback.style.display = "none";
-    nameFeedbackRequired.style.display = "none";
-    isnameValid = true;
-  } else if (nameValue.length > 15) {
-    name.classList.remove("is-valid");
-    name.classList.add("is-invalid");
-    nameFeedback.style.display = "block";
-    nameFeedbackRequired.style.display = "none";
-    isnameValid = false;
-  } else if (nameValue.length == 0) {
-    name.classList.remove("is-valid");
-    name.classList.add("is-invalid");
-    nameFeedback.style.display = "none";
-    nameFeedbackRequired.style.display = "block";
-    isnameValid = false;
+let titleValidation = () => {
+  if (titleValue.length <= 15 && titleValue.length > 0) {
+    title.classList.remove("is-invalid");
+    title.classList.add("is-valid");
+    titleFeedback.style.display = "none";
+    titleFeedbackRequired.style.display = "none";
+    istitleValid = true;
+  } else if (titleValue.length > 15) {
+    title.classList.remove("is-valid");
+    title.classList.add("is-invalid");
+    titleFeedback.style.display = "block";
+    titleFeedbackRequired.style.display = "none";
+    istitleValid = false;
+  } else if (titleValue.length == 0) {
+    title.classList.remove("is-valid");
+    title.classList.add("is-invalid");
+    titleFeedback.style.display = "none";
+    titleFeedbackRequired.style.display = "block";
+    istitleValid = false;
   }
 };
 
@@ -59,13 +59,13 @@ message.addEventListener("keyup", (e) => {
   messageValidation();
 });
 
-name.addEventListener("keyup", (e) => {
-  nameValue = e.target.value;
-  nameValidation();
+title.addEventListener("keyup", (e) => {
+  titleValue = e.target.value;
+  titleValidation();
 });
 
 form.addEventListener("keyup", () => {
-  if (isMessageValid && isnameValid) {
+  if (isMessageValid && istitleValid) {
     submitBtn.removeAttribute("disabled");
   } else {
     submitBtn.setAttribute("disabled", "true");

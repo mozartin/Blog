@@ -10,13 +10,13 @@
          </div>
          <form action="/post/<%= user._id %>" method="post">
                <div class="mb-3">
-                  <label for="name" class="form-label">Name:</label>
-                  <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name">
-                  <div id="nameFeedback" class="invalid-feedback pb-2">
-                     The Name field must be no longer than 15 characters
+                  <label for="title" class="form-label">Title:</label>
+                  <input type="text" class="form-control" id="title" aria-describedby="emailHelp" name="title">
+                  <div id="titleFeedback" class="invalid-feedback pb-2">
+                     The Title field must be no longer than 15 characters
                   </div>
-                  <div id="nameFeedbackRequired" class="invalid-feedback pb-2">
-                     The Name field is required
+                  <div id="titleFeedbackRequired" class="invalid-feedback pb-2">
+                     The Title field is required
                   </div>
                </div>
                <div class="mb-3">
