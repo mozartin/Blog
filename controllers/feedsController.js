@@ -15,12 +15,14 @@ const feed_index = (req, res) => {
 };
 
 const feed_details = (req, res) => {
-  FEED.findById(req.params.id).then((result) => {
-    res.render("details_feed", {
-      title: "Article Details",
-      feed: result,
+  FEED.findById(req.params.id)
+    .populate("user")
+    .then((result) => {
+      res.render("details_feed", {
+        title: "Article Details",
+        feed: result,
+      });
     });
-  });
 };
 
 const feed_update_get = (req, res) => {

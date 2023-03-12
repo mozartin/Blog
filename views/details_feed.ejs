@@ -12,11 +12,21 @@
          </div>
          <div class="card">
             <div class="card-body">
+               <div class="d-flex align-items-center gap-2 mb-2">
+                  <div class="userPicture">
+                     <img src="/pictures/profile-img-placeholder.png" alt="ptofile photo" width="50" height="50">
+                  </div>
+                  <div class="fw-bold name">
+                     <%= feed.user.name %>
+                  </div>
+               </div>
                <h5 class="card-title name">
                   <%= feed.title %>
                </h5>
                <p class="time">
-                  <%= feed.updatedAt %>
+                  <%= feed.created_time %>
+                  <br>
+                  <%= feed.created_date %>
                </p>
                <p class="card-text">
                   <%= feed.message %>
