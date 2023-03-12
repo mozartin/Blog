@@ -42,8 +42,8 @@
                               <%= feed.title %>
                            </p>
                            <p class="fs-5">
-                              <% if(feed.message.length > 90) { %>
-                              <%= feed.message.slice(0, 90) %>...
+                              <% if(feed.message.length > 150) { %>
+                              <%= feed.message.slice(0, 150) %>...
                               <% } else {  %>
                               <%= feed.message %>
                               <% } %>
@@ -59,7 +59,7 @@
 
          <%- include('./partials/footer.ejs') %>
 
-            <script src="/script.js"></script>
+         <script src="/script.js"></script>
    </body>
 
    </html>
