@@ -1,4 +1,5 @@
 const FEED = require("../models/FEED");
+const moment = require("moment");
 
 const feed_index = (req, res) => {
   FEED.find()
@@ -40,7 +41,16 @@ const feed_update_post = (req, res) => {
 };
 
 const feed_post = (req, res) => {
-  const feed = new FEED(req.body);
+  const time = moment(Date.now()).format("hh:mma");
+  const date = moment(Date.now()).format("D MMMM YYYY");
+
+  console.log({...req.body,
+    ...{ created_time: time, created_date: date }});
+
+  const feed = new FEED({
+    ...req.body,
+    ...{ created_time: time, created_date: date }
+  });
   feed
     .save()
     .then((result) => {
@@ -62,8 +72,8 @@ const feed_delete = (req, res) => {
 };
 
 const feed_get = (req, res) => {
-  res.render("post_feed", {title: "post"})
-}
+  res.render("post_feed", { title: "post" });
+};
 
 module.exports = {
   feed_index,
@@ -72,5 +82,5 @@ module.exports = {
   feed_update_post,
   feed_post,
   feed_delete,
-  feed_get
+  feed_get,
 };

@@ -13,6 +13,12 @@ const FEEDSchema = new Schema(
       required: true,
       maxLength: 40,
     },
+    created_time: {
+      type: String,
+    },
+    created_date: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
