@@ -6,6 +6,11 @@ body {
 
 footer {
   margin-top: auto;
+  padding: 10px;
+}
+
+.nav-text {
+  color: #fef9f3;
 }
 
 h1,

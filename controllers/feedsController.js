@@ -61,6 +61,10 @@ const feed_delete = (req, res) => {
     });
 };
 
+const feed_get = (req, res) => {
+  res.render("post_feed", {title: "post"})
+}
+
 module.exports = {
   feed_index,
   feed_details,
@@ -68,4 +72,5 @@ module.exports = {
   feed_update_post,
   feed_post,
   feed_delete,
+  feed_get
 };

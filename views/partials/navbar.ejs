@@ -1,21 +1,21 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-success">
   <div class="container-fluid">
     <% if(user) { %>
-    <a class="navbar-brand" href="/feed">Welcome, <%= user.name %>!</a>
+    <a class="navbar-brand nav-text" href="/feed">Welcome, <%= user.name %>!</a>
     <% } else { %>
-    <a class="navbar-brand" href="/feed">Welcome!</a>
+    <a class="navbar-brand nav-text" href="/feed">Welcome!</a>
     <% } %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+    <button class="navbar-toggler nav-text" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon nav-text"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav ">
         <% if(user) { %>
-          <a class="nav-link" href="/logout">LOG OUT</a>
+          <a class="nav-link nav-text" href="/logout">LOG OUT</a>
           <% } else { %>
-            <a class="nav-link" href="/login">LOG IN</a>
-            <a class="nav-link" href="/signup">SIGN UP</a>
+            <a class="nav-link nav-text" href="/login">LOG IN</a>
+            <a class="nav-link nav-text" href="/signup">SIGN UP</a>
           <% } %>
       </div>
     </div>
