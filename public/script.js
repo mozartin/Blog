@@ -9,15 +9,17 @@ let messageValue = message.value;
 let titleValue = title.value;
 let isMessageValid = messageValue.length > 0 ? true : false;
 let istitleValid = titleValue.length > 0 ? true : false;
+let istitleValidation = false;
+let ismessageValidation = false;
 
 let messageValidation = () => {
-  if (messageValue.length <= 40 && messageValue.length > 0) {
+  if (messageValue.length >= 20) {
     message.classList.remove("is-invalid");
     message.classList.add("is-valid");
     messageFeedback.style.display = "none";
     messageFeedbackRequired.style.display = "none";
     isMessageValid = true;
-  } else if (messageValue.length > 40) {
+  } else if (messageValue.length < 20 && ismessageValidation) {
     message.classList.remove("is-valid");
     message.classList.add("is-invalid");
     messageFeedback.style.display = "block";
@@ -33,13 +35,13 @@ let messageValidation = () => {
 };
 
 let titleValidation = () => {
-  if (titleValue.length <= 15 && titleValue.length > 0) {
+  if (titleValue.length >= 5) {
     title.classList.remove("is-invalid");
     title.classList.add("is-valid");
     titleFeedback.style.display = "none";
     titleFeedbackRequired.style.display = "none";
     istitleValid = true;
-  } else if (titleValue.length > 15) {
+  } else if (titleValue.length < 5 && istitleValidation) {
     title.classList.remove("is-valid");
     title.classList.add("is-invalid");
     titleFeedback.style.display = "block";
@@ -62,6 +64,16 @@ message.addEventListener("keyup", (e) => {
 title.addEventListener("keyup", (e) => {
   titleValue = e.target.value;
   titleValidation();
+});
+
+title.addEventListener("change", (e) => {
+  istitleValidation = true;
+  titleValidation();
+});
+
+message.addEventListener("change", (e) => {
+  ismessageValidation = true;
+  messageValidation();
 });
 
 form.addEventListener("keyup", () => {

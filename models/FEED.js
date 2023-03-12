@@ -10,12 +10,12 @@ const FEEDSchema = new Schema(
     title: {
       type: String,
       required: true,
-      maxLength: 15,
+      minLength: 5,
     },
     message:  {
       type: String,
       required: true,
-      maxLength: 40,
+      minLength: 20,
     },
     created_time: {
       type: String,
