@@ -16,6 +16,6 @@ route.get("/delete/:id", requireAuth, feedController.feed_delete);
 
 route.get("/post", requireAuth, feedController.feed_get);
 
-route.post("/post", requireAuth, feedController.feed_post);
+route.post("/post/:id", requireAuth, feedController.feed_post);
 
 module.exports = route;

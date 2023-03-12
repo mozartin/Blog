@@ -5,7 +5,7 @@
    <%- include('./partials/navbar.ejs') %>
    <div class="container">
       <div class="mt-5 d-flexjustify-content-between align-items-end">
-      <h1>Welcome To Facebook</h1>
+      <h1>Welcome To Thoughts</h1>
       <a href="/post"><h2>Add a post</h2></a>
       </div>
    </div>
@@ -16,7 +16,7 @@
                   <li class="list-group-item d-flex justify-content-between align-items-start">
                      <div class="ms-2 me-auto">
                         <div class="fw-bold name">
-                           <%= feed.name %>
+                           <%= feed.user.name %>
                         </div>
                         <p class="time">
                            <%= feed.created_time %>

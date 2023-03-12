@@ -3,8 +3,10 @@ const moment = require("moment");
 
 const feed_index = (req, res) => {
   FEED.find()
+    .populate("user")
     .sort({ updatedAt: -1 })
     .then((result) => {
+      console.log(result);
       res.render("index", { title: "Home", feeds: result });
     })
     .catch((err) => {
@@ -41,15 +43,14 @@ const feed_update_post = (req, res) => {
 };
 
 const feed_post = (req, res) => {
+  // console.log(req.params.id);
   const time = moment(Date.now()).format("hh:mma");
   const date = moment(Date.now()).format("D MMMM YYYY");
 
-  console.log({...req.body,
-    ...{ created_time: time, created_date: date }});
-
   const feed = new FEED({
+    ...{ user: req.params.id },
     ...req.body,
-    ...{ created_time: time, created_date: date }
+    ...{ created_time: time, created_date: date },
   });
   feed
     .save()

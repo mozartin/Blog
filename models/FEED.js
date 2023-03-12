@@ -3,12 +3,16 @@ const Schema = mongoose.Schema;
 
 const FEEDSchema = new Schema(
   {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref:"user"
+    },
     name: {
       type: String,
       required: true,
       maxLength: 15,
     },
-    message: {
+    message:  {
       type: String,
       required: true,
       maxLength: 40,
